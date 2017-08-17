@@ -4,7 +4,50 @@
    <title>Andy's Hangman</title>
   </head>
   <body>
-   <h1>Hello world!</h1>
-   <p>My first web page.</p>
+   <h1 style="text-align: center">Andy's Hangman</h1>
+   <img src="https://lh6.ggpht.com/uTv6EOKFc9tbCBHuch3ifFlTHbmkhJJta3hzug714YYVSgybbGJkkF9F7TpYVG1QVSk=w300" style="width: 33%; margin-left: 33%; border-radius: 1em">
+   <script>
+    var words = [
+      "chicken",
+      "monkey",
+      "ferret",
+      "whale",
+      "brother",
+      "sister",
+      "mother",
+      "father",
+      "javascript",
+      "ruby",
+      "python",
+      "node",
+      "angular",
+      "react"
+    ];
+    var word = words[Math.floor(Math.random() * words.length)];
+    console.log(word);
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++) {
+      answerArray[i] = "_";
+    }
+    var remainingLetters = word.length;
+    while (i > 0) {
+      alert(answerArray.join(" "));
+      var guess = prompt("Enter a letter or click 'Cancel' to stop playing");
+      if (guess === null) {
+        break;
+      } else if (guess.length > 1) {
+        alert("Please choose only one letter");
+      } else {
+        for (var j = 0; j < word.length; j++) {
+          if (word[j] === guess) {
+            answerArray[j] = guess;
+            remainingLetters--;
+            console.log(remainingLetters);
+          }
+        }
+      }
+    };
+    alert("Good job the answer was " + word + ".");
+   </script>
   </body>
 </html>
