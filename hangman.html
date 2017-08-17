@@ -30,7 +30,7 @@
       answerArray[i] = "_";
     }
     var remainingLetters = word.length;
-    while (i > 0) {
+    while (remainingLetters > 0) {
       alert(answerArray.join(" "));
       var guess = prompt("Enter a letter or click 'Cancel' to stop playing");
       if (guess === null) {
@@ -46,8 +46,10 @@
           }
         }
       }
+      if (remainingLetters === 0) {
+        alert("Good job the answer was " + word + ".");
+      }
     };
-    alert("Good job the answer was " + word + ".");
    </script>
   </body>
 </html>
